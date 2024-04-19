@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli'
 import { KeyboardResize, KeyboardStyle } from '@capacitor/keyboard'
 
 const config: CapacitorConfig = {
-  appId: 'io.12go.where-to-go',
+  appId: 'com.onetwogo.wheretogo',
   appName: 'where-to-go',
   webDir: 'dist',
   includePlugins: [

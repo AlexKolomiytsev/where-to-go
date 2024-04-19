@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">where-to-go</string>
+    <string name="title_activity_main">where-to-go</string>
+    <string name="package_name">com.onetwogo.wheretogo</string>
+    <string name="custom_url_scheme">com.onetwogo.wheretogo</string>
+</resources>

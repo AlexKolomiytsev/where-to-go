@@ -8,9 +8,9 @@ defineProps<{ label: string }>()
 <template>
   <ion-header>
     <ion-toolbar class="primary-toolbar">
-      <BaseTypography slot="start" color="light" variant="headline1Bold">{{
-        label
-      }}</BaseTypography>
+      <BaseTypography slot="start" color="light" variant="headline1Bold">
+        {{ label }}
+      </BaseTypography>
       <slot name="primary-toolbar-tools"></slot>
     </ion-toolbar>
     <ion-toolbar v-if="$slots['secondary-toolbar']">
@@ -26,6 +26,6 @@ ion-toolbar {
 
 .primary-toolbar {
   display: flex;
-  padding: 0 12px;
+  padding: var(--ion-safe-area-top, 0) 12px 0;
 }
 </style>
