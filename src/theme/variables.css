@@ -5,9 +5,9 @@ http://ionicframework.com/docs/theming/ */
 :root {
   /** primary **/
   --ion-color-primary: #3a8a3a;
-  --ion-color-primary-rgb: 58,138,58;
+  --ion-color-primary-rgb: 58, 138, 58;
   --ion-color-primary-contrast: #000000;
-  --ion-color-primary-contrast-rgb: 0,0,0;
+  --ion-color-primary-contrast-rgb: 0, 0, 0;
   --ion-color-primary-shade: #337933;
   --ion-color-primary-tint: #4e964e;
 
@@ -78,9 +78,8 @@ http://ionicframework.com/docs/theming/ */
 
 .ios body {
   --ion-background-color: #f5f5f5;
-  --ion-background-color-rgb: 232,232,232;
+  --ion-background-color-rgb: 232, 232, 232;
 }
-
 
 /* TODO: implement dark/light mode toggle */
 
@@ -197,7 +196,6 @@ http://ionicframework.com/docs/theming/ */
 /*    --ion-toolbar-background: var(--ion-color-step-150);*/
 /*    --ion-toolbar-border-color: var(--ion-color-step-250);*/
 /*  }*/
-
 
 /*  !**/
 /*   * Material Design Dark Theme*/
