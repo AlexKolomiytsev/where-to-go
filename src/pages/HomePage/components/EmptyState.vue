@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { inject } from 'vue'
-import type { CountryCode } from '@/shared/types/CountryCode'
-
-const selectedCountry = inject<CountryCode>('selectedCountry')
+import WelcomeEmptyState from '@/pages/HomePage/components/WelcomeEmptyState/WelcomeEmptyState.vue'
+import BaseTypography from '@/shared/components/BaseTypography.vue'
 
 defineProps<{
   searchQuery: string
@@ -10,10 +8,16 @@ defineProps<{
 </script>
 
 <template>
-  <div v-if="searchQuery">No results</div>
-  <div v-else>
-    TODO: show image and text according to the selected country {{ selectedCountry }}
+  <div class="wrapper">
+    <BaseTypography v-if="searchQuery" variant="headline2Bold">
+      <div>No results found for "{{ searchQuery }}"</div>
+    </BaseTypography>
+    <WelcomeEmptyState v-else />
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.wrapper {
+  margin: 24px 16px;
+}
+</style>

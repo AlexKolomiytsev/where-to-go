@@ -9,7 +9,7 @@
       </template>
     </BaseHeader>
     <ion-content :fullscreen="true">
-      <ion-loading v-if="isLoading" message="Loading cities..."></ion-loading>
+      <LoadingSkeleton v-if="isLoading" :number-of-items="10" />
       <div v-else-if="!isLoading && cities.length">
         <CitySearchResultCard
           v-for="city in cities"
@@ -30,8 +30,8 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonPage, IonLoading, IonAlert } from '@ionic/vue'
-import { ref, provide, type Ref } from 'vue'
+import { IonContent, IonPage, IonAlert } from '@ionic/vue'
+import { ref, provide, readonly } from 'vue'
 import SearchBar from '@/shared/components/SearchBar.vue'
 import CitySearchResultCard from '@/shared/components/CitySearchResultCard.vue'
 import useNominatimCitiesSearch from '@/shared/hooks/useNominatimCitiesSearch'
@@ -39,12 +39,13 @@ import EmptyState from '@/pages/HomePage/components/EmptyState.vue'
 import { CountryCode } from '@/shared/types/CountryCode'
 import BaseHeader from '@/shared/components/BaseHeader.vue'
 import CountrySelectorWithCustomInterface from '@/shared/components/CountrySelectorWithCustomInterface/CountrySelectorWithCustomInterface.vue'
-import CountrySelector from '@/shared/components/CountrySelector.vue'
+import { selectedCountryInjectionKey } from '@/shared/di/injectionsKeys'
+import LoadingSkeleton from '@/pages/HomePage/components/LoadingSkeleton.vue'
 
 const searchQuery = ref('')
 const selectedCountry = ref<CountryCode>(CountryCode.Thailand)
 
-provide<Ref<CountryCode>>('selectedCountry', selectedCountry)
+provide(selectedCountryInjectionKey, readonly(selectedCountry))
 
 const { cities, isLoading, error } = useNominatimCitiesSearch(searchQuery, selectedCountry)
 </script>

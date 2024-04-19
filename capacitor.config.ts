@@ -9,7 +9,8 @@ const config: CapacitorConfig = {
     '@capacitor/app',
     '@capacitor/haptics',
     '@capacitor/keyboard',
-    '@capacitor/status-bar'
+    '@capacitor/status-bar',
+    '@capacitor/browser'
   ],
   plugins: {
     CapacitorHttp: {

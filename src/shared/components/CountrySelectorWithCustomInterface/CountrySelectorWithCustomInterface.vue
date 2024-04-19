@@ -2,7 +2,7 @@
   <ion-button id="select-country" :slot="$attrs.slot" class="body1Regular">{{
     selectedCountryText
   }}</ion-button>
-  <CustomInterface :component="selectInterface" trigger="select-country">
+  <CustomInterface :component="selectInterface" trigger="select-country" ref="interfaceRef">
     <ion-list lines="full">
       <ion-radio-group :value="model" @ionChange="handleChange">
         <ion-item class="item" v-for="country in countriesOptions" :key="country.value">
@@ -27,11 +27,12 @@ import {
   IonRadio,
   getPlatforms,
   IonList,
+  IonItem,
   type RadioGroupChangeEventDetail
 } from '@ionic/vue'
 import { countriesOptions, countryCodeToNameMap } from '@/shared/data/countries'
 import { CountryCode } from '@/shared/types/CountryCode'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import type { IonRadioGroupCustomEvent } from '@ionic/core/dist/types/components'
 import CustomInterface from '@/shared/components/CountrySelectorWithCustomInterface/CustomInterface.vue'
 
@@ -45,7 +46,10 @@ const selectedCountryText = computed(() => {
   return countryCodeToNameMap[model.value]
 })
 
+const interfaceRef = ref<InstanceType<typeof CustomInterface> | null>(null)
+
 const handleChange = (event: IonRadioGroupCustomEvent<RadioGroupChangeEventDetail>) => {
+  interfaceRef.value?.$el.dismiss()
   model.value = event.detail.value
 }
 </script>
