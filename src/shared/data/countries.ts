@@ -1,9 +1,10 @@
 import { CountryCode } from '@/shared/types/CountryCode'
+import { getCountryFlag } from '@/shared/utils/unicode'
 
-const countryCodeToNameMap = {
-  [CountryCode.Thailand]: 'Thailand',
-  [CountryCode.India]: 'India',
-  [CountryCode.Singapore]: 'Singapore'
+export const countryCodeToNameMap = {
+  [CountryCode.Thailand]: `${getCountryFlag(CountryCode.Thailand)} Thailand`,
+  [CountryCode.India]: `${getCountryFlag(CountryCode.India)} India`,
+  [CountryCode.Singapore]: `${getCountryFlag(CountryCode.Singapore)} Singapore`
 }
 
 export const countriesOptions = [

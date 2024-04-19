@@ -1,0 +1,99 @@
+@mixin body1 {
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+}
+
+@mixin body2 {
+  font-size: 1rem;
+  line-height: 1.25rem;
+}
+
+.body1Regular {
+  @include body1;
+  font-weight: 400;
+}
+
+.body1Medium {
+  @include body1;
+  font-weight: 500;
+}
+
+.body1Bold {
+  @include body1;
+  font-weight: 700;
+}
+
+.body2Regular {
+  @include body2;
+  font-weight: 400;
+}
+
+.body2Medium {
+  @include body2;
+  font-weight: 500;
+}
+
+.body2Bold {
+  @include body2;
+  font-weight: 700;
+}
+
+@mixin caption {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.captionRegular {
+  @include caption;
+  font-weight: 400;
+}
+
+.captionMedium {
+  @include caption;
+  font-weight: 500;
+}
+
+.captionBold {
+  @include caption;
+  font-weight: 700;
+}
+
+@mixin headline1 {
+  font-size: 1.625rem;
+  line-height: 1.725rem;
+}
+
+@mixin headline2 {
+  font-size: 1.5rem;
+  line-height: 1.6rem;
+}
+
+.headline1Regular {
+  @include headline1;
+  font-weight: 400;
+}
+
+.headline1Medium {
+  @include headline1;
+  font-weight: 500;
+}
+
+.headline1Bold {
+  @include headline1;
+  font-weight: 700;
+}
+
+.headline2Regular {
+  @include headline2;
+  font-weight: 400;
+}
+
+.headline2Medium {
+  @include headline2;
+  font-weight: 500;
+}
+
+.headline2Bold {
+  @include headline2;
+  font-weight: 700;
+}

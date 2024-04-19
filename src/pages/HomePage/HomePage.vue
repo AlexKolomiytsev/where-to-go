@@ -1,15 +1,13 @@
 <template>
   <ion-page>
-    <ion-header>
-      <ion-toolbar>
-        <ion-label>Where to?</ion-label>
-        <CountrySelector v-model="selectedCountry" />
-      </ion-toolbar>
-      <ion-toolbar>
+    <BaseHeader label="Where to?">
+      <template #primary-toolbar-tools>
+        <CountrySelectorWithCustomInterface slot="end" v-model="selectedCountry" />
+      </template>
+      <template #secondary-toolbar>
         <SearchBar v-model="searchQuery" placeholder="Type a place name" />
-      </ion-toolbar>
-    </ion-header>
-
+      </template>
+    </BaseHeader>
     <ion-content :fullscreen="true">
       <ion-loading v-if="isLoading" message="Loading cities..."></ion-loading>
       <div v-else-if="!isLoading && cities.length">
@@ -32,22 +30,16 @@
 </template>
 
 <script setup lang="ts">
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonLabel,
-  IonToolbar,
-  IonLoading,
-  IonAlert
-} from '@ionic/vue'
+import { IonContent, IonPage, IonLoading, IonAlert } from '@ionic/vue'
 import { ref, provide, type Ref } from 'vue'
 import SearchBar from '@/shared/components/SearchBar.vue'
 import CitySearchResultCard from '@/shared/components/CitySearchResultCard.vue'
 import useNominatimCitiesSearch from '@/shared/hooks/useNominatimCitiesSearch'
 import EmptyState from '@/pages/HomePage/components/EmptyState.vue'
-import CountrySelector from '@/shared/components/CountrySelector.vue'
 import { CountryCode } from '@/shared/types/CountryCode'
+import BaseHeader from '@/shared/components/BaseHeader.vue'
+import CountrySelectorWithCustomInterface from '@/shared/components/CountrySelectorWithCustomInterface/CountrySelectorWithCustomInterface.vue'
+import CountrySelector from '@/shared/components/CountrySelector.vue'
 
 const searchQuery = ref('')
 const selectedCountry = ref<CountryCode>(CountryCode.Thailand)
